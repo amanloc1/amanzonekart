@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+        <title>AmanZoneKart</title>
+    </head>
+    <body>
+        <div class="grid-container">
+            <!-- Header Starts -->
+            <header class="header">
+                <div class="brand">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                    <a href="index.html">AmanZoneKart</a>
+                </div>
+                <div class="header-links">
+                    <a href="cart.html">Cart</a>
+                    <a href="signin">Sign In</a>
+                </div>
+            </header>
+            <!-- Header Ends -->
+            <!-- SideBar Starts -->
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <p>Shopping Categories</p>
+                <a href="#index.html">Pants</a>
+                <a href="#index.html">Shirts</a>
+            </div>
+            <!-- SIDE BAR ENDS -->
+
+            <main id="main" class="main">
+                <div class="content">
+                     <ul class="products">
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img class="product-image" src="images/d2.jpeg" alt="product"/>
+                                <div class="product-name">
+                                   <a href="product.html">Slim Shirt</a>
+                                </div>
+                                <div class="product-brand">Nike</div>
+                                <div class="product-price">$60</div>
+                                <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </main>
+            <footer class="footer">
+                All rights reserved.
+            </footer>
+        </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
+    </body>
+</html>
