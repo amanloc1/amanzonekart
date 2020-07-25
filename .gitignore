@@ -3,8 +3,8 @@ dist
 /dist
 node_modules
 /node_modules
-# uploads/*.jpg
-# uploads/*.png
+uploads/*.jpg
+uploads/*.png
 
 /.pnp
 .pnp.js

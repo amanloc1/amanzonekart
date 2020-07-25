@@ -28,7 +28,7 @@ app.get('/api/config/paypal', (req, res) => {
 });
 
 // app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
-app.use(express.static(path.join(__dirname, '/../uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
 app.use(express.static(path.join(__dirname, '/../frontend/build')));
 
 app.get('*', (req, res) => {
