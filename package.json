@@ -8,6 +8,17 @@
     "build": "rm -rf dist && babel backend -d dist",
     "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
   },
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ]
+  ],
   "author": "Aman Kumar(amanloc1@gmail.com)",
   "license": "ISC",
   "dependencies": {
@@ -24,7 +35,6 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
-    "babel-polyfill": "^6.0.16",
     "@babel/core": "^7.10.5",
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
