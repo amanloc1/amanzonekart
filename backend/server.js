@@ -8,7 +8,8 @@ import productRoute from './routes/productRoute';
 import orderRoute from './routes/orderRoute';
 import uploadRoute from './routes/uploadRoute';
 
-const mongodbUrl = config.MONGODB_URL;
+const uri = 'mongodb+srv://amanloc1:Aman@2306@amanzonekart.bkyd8.mongodb.net/amanzonekart?retryWrites=true&w=majority';
+const mongodbUrl = uri;
 mongoose
   .connect(mongodbUrl, {
     useNewUrlParser: true,
