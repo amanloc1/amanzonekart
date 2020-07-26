@@ -43,7 +43,7 @@ function App() {
                             <Route path="/cart/:id?" component={CartScreen} />
                             <Route path="/category/:id" component={HomeScreen} />
                             <Route path="/" exact={true} component={HomeScreen} />
-                            <Route path="*" history={browserHistory} component={My404Component} />
+                            <Route path="*" component={My404Component} />
                         </Switch>
                     </div>
                 </main>
