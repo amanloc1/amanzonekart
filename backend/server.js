@@ -37,5 +37,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(config.PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server started at http://localhost:${config.PORT}`);
 });
