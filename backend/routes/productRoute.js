@@ -5,6 +5,10 @@ import { isAuth, isAdmin } from '../util';
 const router = express.Router();
 
 router.get('/', async (req, res) => {
+
+  console.log(req.query.category);
+  console.log(req.query.sortOrder);
+  console.log(req.query.searchKeyword);
   const category = req.query.category ? { category: req.query.category } : {};
   const searchKeyword = req.query.searchKeyword
     ? {
@@ -24,6 +28,8 @@ router.get('/', async (req, res) => {
   );
   res.send(products);
 });
+
+
 
 router.get('/:id', async (req, res) => {
   const product = await Product.findOne({ _id: req.params.id });
