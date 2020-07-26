@@ -18,7 +18,8 @@ function HomeScreen(props) {
     const { products, loading, error } = productList;
     const dispatch = useDispatch(); //dispatcher
     useEffect(() => {
-        dispatch(listProducts(category));
+
+        dispatch(listProducts(category, searchKeyword, sortOrder));
         // without redux....2
         // const fetchData = async() => {
         //     const {data} = await axios.get("/api/products");
@@ -32,6 +33,7 @@ function HomeScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
+
         dispatch(listProducts(category, searchKeyword, sortOrder));
     };
     const sortHandler = (e) => {
