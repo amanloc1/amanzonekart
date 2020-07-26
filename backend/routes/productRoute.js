@@ -25,6 +25,8 @@ router.get('/', async (req, res) => {
   res.send(products);
 });
 
+
+
 router.get('/:id', async (req, res) => {
   const product = await Product.findOne({ _id: req.params.id });
   if (product) {

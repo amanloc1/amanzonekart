@@ -18,26 +18,28 @@ function HomeScreen(props) {
     const { products, loading, error } = productList;
     const dispatch = useDispatch(); //dispatcher
     useEffect(() => {
-        dispatch(listProducts());
+
+        dispatch(listProducts(category, searchKeyword, sortOrder));
         // without redux....2
         // const fetchData = async() => {
         //     const {data} = await axios.get("/api/products");
         //     setProduct(data);
         // }
         // fetchData();
-
         return () => {
 
         }
-    }, [category]) //empty array means that this lines code when didmount
+    }, [category]) // Only re-run the effect if category changes
 
     const submitHandler = (e) => {
         e.preventDefault();
+
         dispatch(listProducts(category, searchKeyword, sortOrder));
     };
     const sortHandler = (e) => {
         setSortOrder(e.target.value);
-        dispatch(listProducts(category, searchKeyword, sortOrder));
+
+        dispatch(listProducts(category, searchKeyword, e.target.value));
     };
 
     return (
@@ -58,9 +60,10 @@ function HomeScreen(props) {
                 <li>
                     Sort By{' '}
                     <select name="sortOrder" onChange={sortHandler}>
+
                         <option value="">Newest</option>
-                        <option value="highest">Lowest</option>
-                        <option value="lowest">Highest</option>
+                        <option value="lowest">Lowest</option>
+                        <option value="highest">Highest</option>
                     </select>
                 </li>
             </ul>
