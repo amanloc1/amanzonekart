@@ -25,7 +25,7 @@ function OrderScreen(props) {
   const orderDetails = useSelector(state => state.orderDetails);
   const { loading, order, error } = orderDetails;
 
-  return loading ? <div>Loading ...</div> : error ? <div>{error}</div> :
+  return loading ? <div><h1>Loading please wait...</h1> </div> : error ? <div>{error}</div> :
 
     <div>
       <div className="placeorder">

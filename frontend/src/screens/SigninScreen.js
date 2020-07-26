@@ -32,7 +32,7 @@ function SigninScreen(props) {
           <h2>Sign-In</h2>
         </li>
         <li>
-          {loading && <div>Loading...</div>}
+          {loading && <div><h1>Loading please wait...</h1> </div>}
           {error && <div>{error}</div>}
         </li>
         <li>
