@@ -28,6 +28,7 @@ function ProductScreen(props) {
         return () => {
             //
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [productSaveSuccess]);
     const submitHandler = (e) => {
         e.preventDefault();
@@ -50,7 +51,7 @@ function ProductScreen(props) {
                 <Link to="/">Back to result</Link>
             </div>
             {loading ? (
-                <div>Loading...</div>
+                <div><h1>Loading please wait...</h1> </div>
             ) : error ? (
                 <div>{error} </div>
             ) : (

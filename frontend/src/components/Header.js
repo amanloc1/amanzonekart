@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Navbar from './Navbar';
 function Header() {

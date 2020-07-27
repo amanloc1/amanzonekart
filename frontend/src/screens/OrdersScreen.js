@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { listOrders, deleteOrder } from '../actions/orderActions';
@@ -8,7 +8,7 @@ function OrdersScreen(props) {
   const { loading, orders, error } = orderList;
 
   const orderDelete = useSelector(state => state.orderDelete);
-  const { loading: loadingDelete, success: successDelete, error: errorDelete } = orderDelete;
+  const { success: successDelete } = orderDelete;
 
   const dispatch = useDispatch();
 
@@ -17,12 +17,15 @@ function OrdersScreen(props) {
     return () => {
       //
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [successDelete]);
 
   const deleteHandler = (order) => {
     dispatch(deleteOrder(order._id));
   }
-  return loading ? <div>Loading...</div> :
+  return loading ? <div><h1>Loading please wait...</h1> </div> : error ? (
+    <div><h1>Something went wrong contact DB...</h1>{error}</div>
+  ) :
     <div className="content content-margined">
 
       <div className="order-header">

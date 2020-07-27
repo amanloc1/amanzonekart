@@ -29,6 +29,7 @@ function HomeScreen(props) {
         return () => {
 
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category]) // Only re-run the effect if category changes
 
     const submitHandler = (e) => {
@@ -44,9 +45,6 @@ function HomeScreen(props) {
 
     return (
         <>
-            {category && <h2>{category}</h2>
-            }
-
             <ul className="filter">
                 <li>
                     <form onSubmit={submitHandler}>
@@ -69,36 +67,40 @@ function HomeScreen(props) {
             </ul>
             {
                 loading ? (
-                    <div>Loading...</div>
+                    <div><h1>Loading please wait...</h1> </div>
                 ) : error ? (
-                    <div>{error}</div>
-                ) : (
-                            <ul className="products">
-                                {products.map((product) => (
-                                    <li key={product._id}>
-                                        <div className="product">
-                                            <Link to={'/product/' + product._id}>
-                                                <img
-                                                    className="product-image"
-                                                    src={product.image}
-                                                    alt="product"
-                                                />
-                                            </Link>
-                                            <div className="product-name">
-                                                <Link to={'/product/' + product._id}>{product.name}</Link>
-                                            </div>
-                                            <div className="product-brand">{product.brand}</div>
-                                            <div className="product-price">&#8377;{product.price}</div>
-                                            <div className="product-rating">
-                                                <Rating
-                                                    value={product.rating}
-                                                    text={product.numReviews}
-                                                />
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                    <div><h1>Something went wrong contact DB...</h1>{error}</div>
+                ) : (<>
+                    {category && <h2>{category}</h2>
+                    }
+
+                    <ul className="products">
+                        {products.map((product) => (
+                            <li key={product._id}>
+                                <div className="product">
+                                    <Link to={'/product/' + product._id}>
+                                        <img
+                                            className="product-image"
+                                            src={product.image}
+                                            alt="product"
+                                        />
+                                    </Link>
+                                    <div className="product-name">
+                                        <Link to={'/product/' + product._id}>{product.name}</Link>
+                                    </div>
+                                    <div className="product-brand">{product.brand}</div>
+                                    <div className="product-price">&#8377;{product.price}</div>
+                                    <div className="product-rating">
+                                        <Rating
+                                            value={product.rating}
+                                            text={product.numReviews}
+                                        />
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </>
                         )
             }
         </>

@@ -3,12 +3,33 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../actions/userActions';
 
+// const validEmailRegex = RegExp(
+//   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+// );
+// const validateForm = errors => {
+//   let valid = true;
+//   Object.values(errors).forEach(val => val.length > 0 && (valid = false));
+//   return valid;
+// };
+
 function RegisterScreen(props) {
+
+
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const errors = {
+    firstName: 'Aman',
+    lastName: '',
+    email: '',
+    password: '',
+  }
+  console.log(errors.firstName);
+  console.log(firstName);
+
   const [rePassword, setRePassword] = useState('');
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfo, error } = userRegister;
@@ -22,11 +43,15 @@ function RegisterScreen(props) {
     return () => {
       //
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(firstName, lastName, email, password));
+    if (rePassword === password)
+      dispatch(register(firstName, lastName, email, password));
+    else
+      alert("password does not match");
   }
   return <div className="form">
     <form onSubmit={submitHandler} >
@@ -35,19 +60,19 @@ function RegisterScreen(props) {
           <h2>Create Account</h2>
         </li>
         <li>
-          {loading && <div>Loading...</div>}
+          {loading && <div><h1>Loading please wait...</h1> </div>}
           {error && <div>{error}</div>}
         </li>
         <li>
-          <label htmlFor="name">
+          <label htmlFor="firstName">
             FirstName
           </label>
-          <input type="name" name="name" id="name" onChange={(e) => setFirstName(e.target.value)}>
+          <input type="firstName" name="firstName" id="firstName" onChange={(e) => setFirstName(e.target.value)}>
           </input>
-          <label htmlFor="name">
+          <label htmlFor="lastName">
             LastName
           </label>
-          <input type="name" name="name" id="name" onChange={(e) => setLastName(e.target.value)}>
+          <input type="lastName" name="lastName" id="lastName" onChange={(e) => setLastName(e.target.value)}>
           </input>
         </li>
         <li>
