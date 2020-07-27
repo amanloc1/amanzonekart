@@ -29,6 +29,7 @@ function HomeScreen(props) {
         return () => {
 
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category]) // Only re-run the effect if category changes
 
     const submitHandler = (e) => {

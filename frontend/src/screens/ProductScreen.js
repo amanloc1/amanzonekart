@@ -28,6 +28,7 @@ function ProductScreen(props) {
         return () => {
             //
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [productSaveSuccess]);
     const submitHandler = (e) => {
         e.preventDefault();

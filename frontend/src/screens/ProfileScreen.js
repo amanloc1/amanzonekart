@@ -40,6 +40,7 @@ function ProfileScreen(props) {
     return () => {
 
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo])
 
   return <div className="profile">

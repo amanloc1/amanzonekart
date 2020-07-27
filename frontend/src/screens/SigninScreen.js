@@ -18,6 +18,7 @@ function SigninScreen(props) {
     return () => {
       //
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
 
   const submitHandler = (e) => {

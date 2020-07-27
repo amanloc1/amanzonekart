@@ -30,9 +30,9 @@ function ProductsScreen(props) {
 
   const productDelete = useSelector((state) => state.productDelete);
   const {
-    loading: loadingDelete,
+    // loading: loadingDelete,
     success: successDelete,
-    error: errorDelete,
+    // error: errorDelete,
   } = productDelete;
   const dispatch = useDispatch();
 
@@ -44,6 +44,7 @@ function ProductsScreen(props) {
     return () => {
       //
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [successSave, successDelete]);
 
   const openModal = (product) => {
@@ -217,28 +218,36 @@ function ProductsScreen(props) {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            {products.map((product) => (
-              <tr key={product._id}>
-                <td>{product._id}</td>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.category}</td>
-                <td>{product.brand}</td>
-                <td>
-                  <button className="button" onClick={() => openModal(product)}>
-                    Edit
+          {
+            loading ? (
+              <div><h1>Loading please wait...</h1> </div>
+            ) : error ? (
+              <div><h1>Something went wrong contact DB...</h1>{error}</div>
+            ) : (<>
+              <tbody>
+                {products.map((product) => (
+                  <tr key={product._id}>
+                    <td>{product._id}</td>
+                    <td>{product.name}</td>
+                    <td>{product.price}</td>
+                    <td>{product.category}</td>
+                    <td>{product.brand}</td>
+                    <td>
+                      <button className="button" onClick={() => openModal(product)}>
+                        Edit
                   </button>{' '}
-                  <button
-                    className="button"
-                    onClick={() => deleteHandler(product)}
-                  >
-                    Delete
+                      <button
+                        className="button"
+                        onClick={() => deleteHandler(product)}
+                      >
+                        Delete
                   </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </>)}
+
         </table>
       </div>
     </div>

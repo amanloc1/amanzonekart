@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createOrder, detailsOrder, payOrder } from '../actions/orderActions';
+import { detailsOrder, payOrder } from '../actions/orderActions';
 import PaypalButton from '../components/PaypalButton';
 function OrderScreen(props) {
 
   const orderPay = useSelector(state => state.orderPay);
-  const { loading: loadingPay, success: successPay, error: errorPay } = orderPay;
+  const { loading: loadingPay, success: successPay } = orderPay;
   const dispatch = useDispatch();
   useEffect(() => {
     if (successPay) {
@@ -16,6 +16,7 @@ function OrderScreen(props) {
     }
     return () => {
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [successPay]);
 
   const handleSuccessPayment = (paymentResult) => {
