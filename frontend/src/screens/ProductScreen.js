@@ -69,7 +69,7 @@ function ProductScreen(props) {
                                             <a href="#reviews">
                                                 <Rating
                                                     value={product.rating}
-                                                    text={product.numReviews + ' reviews'}
+                                                    text={product.numReviews}
                                                 />
                                             </a>
                                         </li>

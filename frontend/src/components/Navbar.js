@@ -20,7 +20,7 @@ function Navbar() {
                         <Link to="/signin">Sign In/ Register</Link>
                     )}
             </div>
-            <span class="Shop-by-category">Shopping Categories</span>
+            <span className="Shop-by-category">Shopping Categories</span>
             <div onClick={closeNav}>
                 <Link to="/category/Pants">Pants</Link>
                 <Link to="/category/Shirts">Shirts</Link>
