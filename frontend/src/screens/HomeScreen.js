@@ -65,6 +65,7 @@ function HomeScreen(props) {
                     </select>
                 </li>
             </ul>
+
             {
                 loading ? (
                     <div><h1>Loading please wait...</h1> </div>

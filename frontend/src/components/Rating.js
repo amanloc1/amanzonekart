@@ -1,10 +1,19 @@
 import React from 'react';
 
-export default function Rating(props) {
+function Rating(props) {
   return (!props.value) ? (
-    <div></div>
+    <div className="rating" style={{ fontSize: "2rem", }}>
+      <span >
+        <i className={'fa fa-star-o'}></i>
+        <i className={'fa fa-star-o'}></i>
+        <i className={'fa fa-star-o'}></i>
+        <i className={'fa fa-star-o'}></i>
+        <i className={'fa fa-star-o'}></i>
+      </span>
+      <span>({props.text ? props.text : '0'} Review)</span>
+    </div>
   ) : (
-      <div className="rating">
+      <div className="rating" style={{ fontSize: "2rem" }}>
         <span>
           <i
             className={
@@ -60,8 +69,9 @@ export default function Rating(props) {
             }
           ></i>
         </span>
-        <span>{props.text ? props.text : '0'} Reviews</span>
+        <span>({props.text ? props.text : '0'} Reviews)</span>
         {/* <span>{props.text} Reviews</span> */}
       </div >
     );
 }
+export default Rating;
