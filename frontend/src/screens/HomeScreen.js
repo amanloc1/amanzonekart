@@ -13,7 +13,7 @@ function HomeScreen(props) {
     const [searchKeyword, setSearchKeyword] = useState('');
     const [sortOrder, setSortOrder] = useState('');
     const category = props.match.params.id ? props.match.params.id : '';
-
+    // const [prevProducts, setPrevProducts] = useState([]);
     const productList = useSelector(state => state.productList); // a hook to access the redux store's state
     const { products, loading, error } = productList;
     const dispatch = useDispatch(); //dispatcher
@@ -32,10 +32,12 @@ function HomeScreen(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category]) // Only re-run the effect if category changes
 
-    const submitHandler = (e) => {
+    const searchHandler = (e) => {
         e.preventDefault();
+        setSearchKeyword( e.target.value);
 
-        dispatch(listProducts(category, searchKeyword, sortOrder));
+        dispatch(listProducts(category, e.target.value, sortOrder));
+        // console.log(products);
     };
     const sortHandler = (e) => {
         setSortOrder(e.target.value);
@@ -47,12 +49,12 @@ function HomeScreen(props) {
         <>
             <ul className="filter">
                 <li>
-                    <form onSubmit={submitHandler}>
+                    <form>
                         <input
-                            name="searchKeyword"
-                            onChange={(e) => setSearchKeyword(e.target.value)}
+                            name="searchKeyword" placeholder="Search..."
+                            onChange={searchHandler}
                         />
-                        <button type="submit">Search</button>
+    
                     </form>
                 </li>
                 <li>
@@ -75,7 +77,7 @@ function HomeScreen(props) {
                     {category && <h2>{category}</h2>
                     }
 
-                    <ul className="products">
+                    <span className="products">
                         {products.map((product) => (
                             <li key={product._id}>
                                 <div className="product">
@@ -100,7 +102,7 @@ function HomeScreen(props) {
                                 </div>
                             </li>
                         ))}
-                    </ul>
+                    </span>
                 </>
                         )
             }
