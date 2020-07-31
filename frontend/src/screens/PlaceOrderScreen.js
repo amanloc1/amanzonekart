@@ -57,7 +57,7 @@ function PlaceOrderScreen(props) {
         </div>
         <div>
           <ul className="cart-list-container">
-            <li>
+            <li key="Shopping Cart">
               <h3>
                 Shopping Cart
           </h3>
@@ -72,7 +72,7 @@ function PlaceOrderScreen(props) {
           </div>
                 :
                 cartItems.map(item =>
-                  <li>
+                  <li key= {item.name}>
                     <div className="cart-image">
                       <img src={item.image} alt="product" />
                     </div>
@@ -100,25 +100,25 @@ function PlaceOrderScreen(props) {
       </div>
       <div className="placeorder-action">
         <ul>
-          <li>
+          <li key="Place Order">
             <button className="button primary full-width" onClick={placeOrderHandler} >Place Order</button>
           </li>
-          <li>
+          <li key="OrderSummary">
             <h3>Order Summary</h3>
           </li>
-          <li>
+          <li key="Items">
             <div>Items</div>
             <div>&#8377;{itemsPrice}</div>
           </li>
-          <li>
+          <li key="Shipping">
             <div>Shipping</div>
             <div>&#8377;{shippingPrice}</div>
           </li>
-          <li>
+          <li key="Tax">
             <div>Tax</div>
             <div>&#8377;{taxPrice}</div>
           </li>
-          <li>
+          <li key="Ordertotal">
             <div>Order Total</div>
             <div>&#8377;{totalPrice}</div>
           </li>
