@@ -102,11 +102,10 @@ a:hover {
 /* home screen */
 .products {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }
-
 .products li {
   list-style-type: none;
   padding: 0;

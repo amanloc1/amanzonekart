@@ -29,23 +29,25 @@ function Header() {
                         )}
 
                     {userInfo ? (
-                        <Link to="/profile">
-                            <ul style={{ listStyleType: "none" }}>
-                                <li>
+                        <Link to="/profile" style={{paddingTop:"10px"}}>
+                            <span>
+                                <span>
                                     Hello
-                                    </li>
-                                <li style={{ fontSize: "10px" }}>
+                                    </span>
+                                    <br></br>
+                                <span style={{ fontSize: "10px" }}>
                                     {userInfo.firstName}
-                                </li>
-                            </ul>
+                                </span>
+                                    
+                            </span>
                         </Link>
                     ) : (
                             <Link to="/signin" style={{ marginTop: "0.8rem" }}>Sign In</Link>
                         )}
                     {userInfo && userInfo.isAdmin && (
                         <div className="dropdown">
-                            <button class="dropbtn">Admin</button>
-                            <div class="dropdown-content">
+                            <button className="dropbtn">Admin</button>
+                            <div className="dropdown-content">
                                 <Link to="/orders">Manage Orders</Link>
                                 <Link to="/products">Manage Product</Link>
                             </div>
