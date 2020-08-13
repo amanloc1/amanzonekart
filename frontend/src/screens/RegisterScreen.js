@@ -21,14 +21,13 @@ function RegisterScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const errors = {
-    firstName: 'Aman',
-    lastName: '',
-    email: '',
-    password: '',
-  }
-  console.log(errors.firstName);
-  console.log(firstName);
+  // const errors = {
+  //   firstName: 'Aman',
+  //   lastName: '',
+  //   email: '',
+  //   password: '',
+  // }
+
 
   const [rePassword, setRePassword] = useState('');
   const userRegister = useSelector(state => state.userRegister);

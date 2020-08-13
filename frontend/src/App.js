@@ -47,7 +47,7 @@ function App() {
                         </Switch>
                     </div>
                 </main>
-                <Footer />
+                <Footer onClick={closeNav} />
             </div>
         </BrowserRouter >
     );

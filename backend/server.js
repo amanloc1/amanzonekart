@@ -8,10 +8,8 @@ import productRoute from './routes/productRoute';
 import orderRoute from './routes/orderRoute';
 import uploadRoute from './routes/uploadRoute';
 
-const uri = 'mongodb+srv://amanloc1:Aman@2306@amanzonekart.bkyd8.mongodb.net/amanzonekart?retryWrites=true&w=majority';
-const mongodbUrl = uri;
-mongoose
-  .connect(mongodbUrl, {
+const mongodbUrl = config.MONGODB_URL;
+mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -28,6 +26,13 @@ app.use('/api/uploads', uploadRoute);
 app.use('/api/users', userRoute);
 app.use('/api/products', productRoute);
 app.use('/api/orders', orderRoute);
+app.get('/api/test',(req,res)=>{
+  res.json(
+    {
+      message:"test api worked fine",
+    }
+  );
+});
 app.get('/api/config/paypal', (req, res) => {
   res.send(config.PAYPAL_CLIENT_ID);
 });

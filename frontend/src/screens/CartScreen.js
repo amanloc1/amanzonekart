@@ -30,7 +30,7 @@ function CartScreen(props) {
     return <div className="cart">
         <div className="cart-list">
             <ul className="cart-list-container">
-                <li>
+                <li key="Price">
                     <h3>Shopping cart
 
                     </h3>
@@ -46,7 +46,7 @@ function CartScreen(props) {
                    </div>
                         :
                         cartItems.map(item =>
-                            <li>
+                            <li key={item.name}>
                                 <div className="cart-image">
                                     <img src={item.image} alt="product" />
                                 </div>
